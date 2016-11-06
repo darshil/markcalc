@@ -239,6 +239,11 @@
 		  var overallMark;
 		  overallMark = Mark1 + Mark2 + Mark3 + Mark4;
 		  overallMark = Math.round(overallMark * 10.0) / 10.0;
+		  if(isNaN(overallMark)){
+		  alert("Please enter valid mark values");
+		  location.reload();
+		  }
+		  else{ 
 		  overallMarkFinal = overallMark.toString() + '%';
 		  overallMarkFinal = overallMarkFinal.fontcolor("#16A085");
 		  document.write("<br>");
@@ -254,6 +259,7 @@
 		  document.write("<br>");
 		  document.write("<center><span style=\"font-size: 200; text-align:center;\">" + overallMarkFinal + "<\/span></center>");
 		  document.body.style.backgroundImage = "url('bg.gif')";
+		  }
 			}
 			
 		</script>
