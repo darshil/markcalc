@@ -1,21 +1,29 @@
   // Initialize Firebase
 
 var user;
+var userEmail;
 
 const txtEmail = document.getElementById('txtEmail');
 const txtPassword = document.getElementById('txtPassword');
 const btnLogin = document.getElementById('btnLogin');
 const btnSignUp = document.getElementById('btnSignUp');
 
+
+userEmail = txtEmail.value;
+
+
 btnLogin.addEventListener('click', e => {
 	const email = txtEmail.value;
 	const pass = txtPassword.value;
 	const auth = firebase.auth();
 
+
 	const promise = auth.signInWithEmailAndPassword(email, pass);
 
 	 $('#userLoader').show();
     $('#btnLogin').hide();
+    console.log(txtEmail.value);
+
 
 	promise.catch(e=> alert(e.message));
 });
@@ -31,6 +39,7 @@ btnSignUp.addEventListener('click', e => {
     $('#btnSignUp').hide();
 	promise.catch(e=> alert(e.message));
 
+console.log(txtEmail.value);
 
 
 });
@@ -279,11 +288,12 @@ console.log(user);
 		  document.write("<br>");
 		  document.write("<center><span style=\"font-size: 200; text-align:center;\">" + overallMarkFinal + "<\/span></center>");
 
-
-		   firebase.database().ref('users/').set({
-
+var myUserId = firebase.auth().currentUser.uid;
+var userEmail2 = txtEmail.value;
+		   firebase.database().ref('users/' + myUserId ).set({
    mark: firebaseMark,
-   subject : subject
+   subject : subject,
+   email: txtEmail.value
   });
 		  }
 			}

@@ -1,5 +1,8 @@
 .login-cover{
-	background: #fff;
+	background: url('https://static.pexels.com/photos/167682/pexels-photo-167682.jpeg') fixed;
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 	position: fixed;
     top: 0;
     left: 0;
@@ -17,4 +20,9 @@
 
 #loginError{
 	display: none;
+}
+
+#mainFunction{
+
+
 }
