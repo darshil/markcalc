@@ -10,3 +10,11 @@
     justify-content: center;
     align-items: center;
 }
+
+#userLoader{
+	display: none;
+}
+
+#loginError{
+	display: none;
+}

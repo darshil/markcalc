@@ -1,6 +1,6 @@
   // Initialize Firebase
 
-
+var user;
 
 const txtEmail = document.getElementById('txtEmail');
 const txtPassword = document.getElementById('txtPassword');
@@ -14,7 +14,10 @@ btnLogin.addEventListener('click', e => {
 
 	const promise = auth.signInWithEmailAndPassword(email, pass);
 
-	promise.catch(e=> console.log(e.message));
+	 $('#userLoader').show();
+    $('#btnLogin').hide();
+
+	promise.catch(e=> alert(e.message));
 });
 
 
@@ -24,18 +27,49 @@ btnSignUp.addEventListener('click', e => {
 	const auth = firebase.auth();
 
 	const promise = auth.createUserWithEmailAndPassword(email, pass);
+    $('#userLoader').show();
+    $('#btnSignUp').hide();
+	promise.catch(e=> alert(e.message));
 
-	promise.catch(e=> console.log(e.message));
+
+
+});
+
+
+btnSignOut.addEventListener('click', e => {
+firebase.auth().signOut();
+
+
 });
 
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
    $(".login-cover").hide();
-  } else {
+
+
        var dialog = document.querySelector('#loginDialog');
 
           if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+      dialog.close();
+	user = firebase.auth().currentUser;
+
+console.log(user);
+  } 
+
+
+
+  else {
+
+ $(".login-cover").show();
+ $('#btnLogin').show();
+ $('#btnSignUp').show();
+ $('#userLoader').hide;
+       var dialog = document.querySelector('#loginDialog');
+
+      if (! dialog.showModal) {
       dialogPolyfill.registerDialog(dialog);
     }
       dialog.showModal();
@@ -224,6 +258,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		  var overallMark;
 		  overallMark = Mark1 + Mark2 + Mark3 + Mark4;
 		  overallMark = Math.round(overallMark * 10.0) / 10.0;
+		  firebaseMark = overallMark
 		  if(isNaN(overallMark)){
 		  alert("Please enter valid mark values");
 		  location.reload();
@@ -243,7 +278,13 @@ firebase.auth().onAuthStateChanged(function(user) {
 		  document.write("<br>");
 		  document.write("<br>");
 		  document.write("<center><span style=\"font-size: 200; text-align:center;\">" + overallMarkFinal + "<\/span></center>");
-		  document.body.style.backgroundImage = "url('bg.gif')";
+
+
+		   firebase.database().ref('users/').set({
+
+   mark: firebaseMark,
+   subject : subject
+  });
 		  }
 			}
 			

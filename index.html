@@ -38,6 +38,7 @@
       <dialog id="loginDialog" class="mdl-dialog">
          <h4 class="mdl-dialog__title">Register</h4>
          <div class="mdl-dialog__content">
+         <p id="loginError"></p>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                <input class="mdl-textfield__input" type="email" id="txtEmail">
                <label class="mdl-textfield__label" for="sample3">Email</label>
@@ -50,7 +51,12 @@
          </div>
          <div class="mdl-dialog__actions">
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="btnLogin">Login</button>
+
+              <div class="mdl-spinner mdl-js-spinner is-active" id="userLoader"></div>
+
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="btnSignUp">Register</button>
+               <div class="mdl-spinner mdl-js-spinner is-active" id="userLoader"></div>
+
          </div>
       </dialog>
       <div class="login-cover">
@@ -63,7 +69,7 @@
                <span class="mdl-layout__title">markCalc</span>
                <div class="mdl-layout-spacer"></div>
                <nav class="mdl-navigation">
-                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                  <button  id="btnSignOut" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
                   Sign Out <i class="material-icons">account_circle</i>
                   </button>
                </nav>
@@ -71,8 +77,10 @@
          </header>
          <div class="mdl-layout__drawer">
          </div>
-      </div>
-      <center>
+
+         <div class="mdl-layout__content">
+         	
+   <center>
          <p id="pass" style="font-size:40px; font-weight: 1800">What's the subject (e.g."Math")?</p>
       </center>
       <center>
@@ -87,6 +95,12 @@
       </div>
       <center><button id="onClick7" onclick="onClick7()" type="button"  class="button hvr-buzz" style="height: 150px; visibility:hidden; font-size: 40px; width: 350px">Calculate!</button></center>
       <br>
+         </div>
+      </div>
+   
+
+
+
       <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
       <script>
          var config = {
