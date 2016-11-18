@@ -9,8 +9,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="animations.css">
-
-
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+          <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+           <link href="css/home.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
         <!--Firebase-->
         <script type="text/javascript">
 
@@ -38,7 +41,9 @@
           console.log(email);
           console.log(photoURL);
 
-
+      if(emailVerified){
+         window.location = 'dashboard.html'
+      }
 
 
 
@@ -50,7 +55,16 @@
       
       });
 
-             window.location = 'email-verification.html'
+            
+console.log("It reaches here")
+
+ var dialog = document.querySelector('#loginDialog');
+
+      if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+      dialog.showModal();
+            
           }
 
         } else {
@@ -71,6 +85,65 @@
 });
     };
     </script>
+
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      
+      <span class="mdl-layout-title">MarkCalc</span>
+
+      <div class="mdl-layout-spacer"></div>
+      
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+    
+      <div id="container"> 
+  
+
+      <dialog id="loginDialog" class="mdl-dialog">
+         <h4 class="mdl-dialog__title">Verification Required</h4>
+         <div class="mdl-dialog__content">
+         <p id="loginError">Please Verify Your Email to Continue Your Signup</p>
+  
+              
+         </div>
+         <div class="mdl-dialog__actions">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"  id="quickstart-verification" name="signin">Check Verification</button>
+
+         </div>
+      </dialog>
+            </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+</div>
+
+
+
+
+
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!--Firebase Initialization-->
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
@@ -85,5 +158,6 @@
          firebase.initializeApp(config);
          
       </script>
+      </body>
 
-      </head></html>
+      </html>
