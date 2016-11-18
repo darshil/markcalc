@@ -44,6 +44,12 @@
 
           if (!emailVerified) {
 
+             firebase.auth().currentUser.sendEmailVerification().then(function() {
+    
+        console.log('Email Verification Sent!');
+      
+      });
+
             alert("Please Verify Your Email to Continue");
           }
 
@@ -58,7 +64,7 @@
       initApp();
         ref.onAuth(function(authData) {
   if (authData) {
-    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+    console.log("User " + authData.uid + " is logged in with " + authData.provider + authData.email);
   } else {
     console.log("User is logged out");
   }
