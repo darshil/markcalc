@@ -1,145 +1,110 @@
-<html lang="en">
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<!DOCTYPE html>
+<html>
+    <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
       <meta charset="utf-8">
       <meta name="description" content="A program to calculate your final mark based on different weightings of segmented marks according to the subject">
       <meta name="author" content="Rushi Gandhi, Harsimran Aneja, Tapnish Wadhwa, Aditya Sharma">
       <title>95 or nah?</title>
-      <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
-      <script
-         src="https://code.jquery.com/jquery-3.1.1.min.js"
-         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-         crossorigin="anonymous"></script>
-      <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+       <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+             <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
       <!-- CSS  -->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link href="css/hover.css" rel="stylesheet" media="all">
       <link rel="shortcut icon" href="favicon.png">
-   </head>
-   <style type= "text/css"> 
-      .wrapper {
-      text-align: center;
-      vertical-align:center;
-      }	
-      .hvr-buzz{
-      background-color: white;
-      color: #16A085;
-      border: 2px solid #16A085;
-      }
-      #pass {
-      color: #16A085;
-      }
-   </style>
-   <body>
+     
+          <link href="css/home.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <script src="js/home.js"></script>
+
+
+</head>
+<body>
+
+    </head>
+
+    <body>
+
+
+
+
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      
+      <span class="mdl-layout-title">MarkCalc</span>
+
+      <div class="mdl-layout-spacer"></div>
+      
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+    
+      <div id="container"> 
+  
+
       <dialog id="loginDialog" class="mdl-dialog">
          <h4 class="mdl-dialog__title">Register</h4>
          <div class="mdl-dialog__content">
          <p id="loginError"></p>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-               <input class="mdl-textfield__input" type="email" id="txtEmail">
-               <label class="mdl-textfield__label" for="sample3">Email</label>
+               <input class="mdl-textfield__input" type="email" id="email" name="email">
+               <label class="mdl-textfield__label" for="email">Email</label>
             </div>
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="password" id="txtPassword">
-                  <label class="mdl-textfield__label" for="sample3">Pasword</label>
+                  <input class="mdl-textfield__input" type="password" id="password" name="password">
+                  <label class="mdl-textfield__label" for="password">Pasword</label>
                </div>
             
          </div>
          <div class="mdl-dialog__actions">
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="btnLogin">Login</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"  id="quickstart-sign-in" name="signin">Login</button>
 
-              <div class="mdl-spinner mdl-js-spinner is-active" id="userLoader"></div>
+           
 
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="btnSignUp">Register</button>
-               <div class="mdl-spinner mdl-js-spinner is-active" id="userLoader"></div>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="quickstart-sign-up" name="signup">Register</button>
+             
 
          </div>
       </dialog>
-      <div class="login-cover">
-         <div class="mdl-spinner mdl-js-spinner is-active"></div>
-      </div>
-      <div class="mdl-layout mdl-js-layout">
-         <header class="mdl-layout__header">
-            <div class="mdl-layout-icon"></div>
-            <div class="mdl-layout__header-row">
-               <span class="mdl-layout__title">markCalc</span>
-               <div class="mdl-layout-spacer"></div>
-               <nav class="mdl-navigation">
-                  <button  id="btnSignOut" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-                  Sign Out <i class="material-icons">account_circle</i>
-                  </button>
-               </nav>
             </div>
-         </header>
-         <div class="mdl-layout__drawer">
-         </div>
+        </div>
 
-  
-
-         <main id="mainFunction" class="mdl-layout__content">
- <!-- <p id="pass" >What's the subject (e.g."Math")?</p>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="mdl-textfield__input" type="text" id="sample3">
-    <label class="mdl-textfield__label" for="sample3"></label>
-  </div>
-  -->
-
-
- <p id="pass" style="font-size:40px; font-weight: 1800">What's the subject (e.g."Math")?</p>
-      </center>
-      <center>
-         <p><input id="yourNumber" type="text" style="height: 60px; font-size: 52px; width: 450px; visibility:visible"/></p>
-      </center>
-      <div class="wrapper">
-         <button id="onClick2" onclick="onClick2()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:visible; font-size: 30px; width: 150px">Enter</button>
-         <center><button id="onClick3" onclick="onClick3()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:hidden; font-size: 30px; width: 150px">Enter</button></center>
-         <center><button id="onClick4" onclick="onClick4()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:hidden; font-size: 30px; width: 150px">Enter</button></center>
-         <center><button id="onClick5" onclick="onClick5()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:hidden; font-size: 30px; width: 150px">Enter</button></center>
-         <center><button id="onClick6" onclick="onClick6()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:hidden; font-size: 30px; width: 150px">Enter</button></center>
       </div>
-      <center><button id="onClick7" onclick="onClick7()" type="button"  class="button hvr-buzz" style="height: 150px; visibility:hidden; font-size: 40px; width: 350px">Calculate!</button></center>
-      <br>
+
+    </div>
+  </main>
+</div>
 
 
 
-
-
-
-
-
-         	</main>
-   <center>
-
-
-   <!--
-         <p id="pass" style="font-size:40px; font-weight: 1800">What's the subject (e.g."Math")?</p>
-      </center>
-      <center>
-         <p><input id="yourNumber" type="text" style="height: 60px; font-size: 52px; width: 450px; visibility:visible"/></p>
-      </center>
-      <div class="wrapper">
-         <button id="onClick2" onclick="onClick2()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:visible; font-size: 30px; width: 150px">Enter</button>
-         <center><button id="onClick3" onclick="onClick3()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:hidden; font-size: 30px; width: 150px">Enter</button></center>
-         <center><button id="onClick4" onclick="onClick4()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:hidden; font-size: 30px; width: 150px">Enter</button></center>
-         <center><button id="onClick5" onclick="onClick5()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:hidden; font-size: 30px; width: 150px">Enter</button></center>
-         <center><button id="onClick6" onclick="onClick6()" type="button" class="waves-effect waves-light btn-large" style="height: 80px; visibility:hidden; font-size: 30px; width: 150px">Enter</button></center>
-      </div>
-      <center><button id="onClick7" onclick="onClick7()" type="button"  class="button hvr-buzz" style="height: 150px; visibility:hidden; font-size: 40px; width: 350px">Calculate!</button></center>
-      <br>
-        <!-- Textfield with Floating Label -->
-
-
- </div>
-   
-
-
-
-      <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
-      <script>
+    <!--Bootstrap Js CDN-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--Firebase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+       <script>
          var config = {
          apiKey: "AIzaSyDa_qMIa7N3YZ1GrP8ydQh4xXZetjOC0fs",
          authDomain: "markcalc-beta.firebaseapp.com",
@@ -150,16 +115,6 @@
          firebase.initializeApp(config);
          
       </script>
-      <script src="script.js"></script>
-      <script>
-         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-         
-         ga('create', 'UA-87034057-1', 'auto');
-         ga('send', 'pageview');
-         
-      </script>
-   </body>
-</html>
+      
+      </body>
+      </html>

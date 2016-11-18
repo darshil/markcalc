@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+      <meta charset="utf-8">
+      <meta name="description" content="A program to calculate your final mark based on different weightings of segmented marks according to the subject">
+      <meta name="author" content="Rushi Gandhi, Harsimran Aneja, Tapnish Wadhwa, Aditya Sharma">
+      <title>95 or nah?</title>
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+       <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+             <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+      <!-- CSS  -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+      <link rel="shortcut icon" href="favicon.png">
+     
+          <link href="css/home.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+            <script src="js/home.js"></script>
+
+
+</head>
+<body>
+
+    </head>
+
+    <body>
+
+
+
+
+
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      
+      <span class="mdl-layout-title">MarkCalc</span>
+
+      <div class="mdl-layout-spacer"></div>
+      
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+        <a class="mdl-navigation__link" href="">Link</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+    
+      <div id="container"> 
+  
+
+      <dialog id="loginDialog" class="mdl-dialog">
+         <h4 class="mdl-dialog__title">Register</h4>
+         <div class="mdl-dialog__content">
+         <p id="loginError"></p>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+               <input class="mdl-textfield__input" type="email" id="email" name="email">
+               <label class="mdl-textfield__label" for="email">Email</label>
+            </div>
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="password" id="password" name="password">
+                  <label class="mdl-textfield__label" for="password">Pasword</label>
+               </div>
+            
+         </div>
+         <div class="mdl-dialog__actions">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"  id="quickstart-sign-in" name="signin">Login</button>
+
+           
+
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="quickstart-sign-up" name="signup">Register</button>
+             
+
+         </div>
+      </dialog>
+            </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+</div>
+
+
+
+    <!--Bootstrap Js CDN-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--Firebase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+       <script>
+         var config = {
+         apiKey: "AIzaSyDa_qMIa7N3YZ1GrP8ydQh4xXZetjOC0fs",
+         authDomain: "markcalc-beta.firebaseapp.com",
+         databaseURL: "https://markcalc-beta.firebaseio.com",
+         storageBucket: "markcalc-beta.appspot.com",
+         messagingSenderId: "1023910831150"
+         };
+         firebase.initializeApp(config);
+         
+      </script>
+      
+      </body>
+      </html>

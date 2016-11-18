@@ -1,0 +1,20 @@
+body {
+   background-image: url(https://lh4.googleusercontent.com/-XplyTa1Za-I/VMSgIyAYkHI/AAAAAAAADxM/oL-rD6VP4ts/w1184-h666/Android-Lollipop-wallpapers-Google-Now-Wallpaper-2.png);
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   min-height: 100vh;
+   font-family: 'Roboto', sans-serif;
+}
+   #container {
+    width: 400px;
+    margin: 40px auto 0;
+    padding: 50px;
+    box-sizing: border-box;
+   
+   
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
