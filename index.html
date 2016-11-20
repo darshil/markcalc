@@ -19,7 +19,7 @@
       <link rel="shortcut icon" href="favicon.png">
      
           <link href="css/home.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-            <script src="js/home.js"></script>
+           
 
 
 </head>
@@ -66,7 +66,7 @@
   
 
       <dialog id="loginDialog" class="mdl-dialog">
-         <h4 class="mdl-dialog__title">Register</h4>
+         <h4 class="mdl-dialog__title">MarkCalc</h4>
          <div class="mdl-dialog__content">
          <p id="loginError"></p>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -81,10 +81,11 @@
          </div>
          <div class="mdl-dialog__actions">
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"  id="quickstart-sign-in" name="signin">Login</button>
-
-           
+ 
 
             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="quickstart-sign-up" name="signup">Register</button>
+
+            <button class="loginBtn loginBtn--google" id="googleSignIn" name="signup">Google SignIn</button>
              
 
          </div>
@@ -103,7 +104,7 @@
     <!--Bootstrap Js CDN-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!--Firebase Initialization-->
-    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
        <script>
          var config = {
          apiKey: "AIzaSyDa_qMIa7N3YZ1GrP8ydQh4xXZetjOC0fs",
@@ -115,6 +116,7 @@
          firebase.initializeApp(config);
          
       </script>
+       <script src="js/home.js"></script>
       
       </body>
       </html>
