@@ -95,7 +95,7 @@ function googleSignIn() {
 
     googleSignInState = true;
 }
-
+/*
 function sendPasswordReset() {
     var email = document.getElementById('email').value;
 
@@ -118,6 +118,7 @@ function sendPasswordReset() {
     });
 
 }
+*/
 
 function initApp() {
     // auth change listener 
@@ -163,8 +164,9 @@ function initApp() {
    // document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
     // document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     document.getElementById('googleSignIn').addEventListener('click', googleSignIn, false);
+    document.getElementById('googleSignUp').addEventListener('click', googleSignIn, false);
 
-    document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+   // document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
 window.onload = function() {
     initApp();
