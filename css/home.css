@@ -104,3 +104,17 @@ body {
     padding-top: 24px;
     margin-bottom: 40px;
 }
+
+/* Dashboard */
+
+.demo-card-wide.mdl-card {
+  width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('https://static.pexels.com/photos/214238/pexels-photo-214238.jpeg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
