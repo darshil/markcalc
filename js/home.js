@@ -7,7 +7,7 @@
 var provider = new firebase.auth.GoogleAuthProvider();
 var googleSignInState = false;
 
-function toggleSignIn() {
+/* function toggleSignIn() {
     if (firebase.auth().currentUser) {
 
         firebase.auth().signOut();
@@ -64,6 +64,9 @@ function handleSignUp() {
     sendEmailVerification();
 
 }
+
+
+*/
 
 function sendEmailVerification() {
 
@@ -150,27 +153,15 @@ function initApp() {
 
 
         } else {
-            // User is signed out.
-
-
-            var dialog = document.querySelector('#loginDialog');
-
-            if (!dialog.showModal) {
-                dialogPolyfill.registerDialog(dialog);
-            }
-            dialog.showModal();
-
-            document.getElementById('quickstart-sign-in').textContent = 'Sign in';
-
+           
 
         }
-
-        document.getElementById('quickstart-sign-in').disabled = false;
+        
 
     });
 
-    document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-    document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
+   // document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+    // document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     document.getElementById('googleSignIn').addEventListener('click', googleSignIn, false);
 
     document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
