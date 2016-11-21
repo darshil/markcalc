@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta name ="viewport" content ="width=device-width, initial-scale=1.0"> 
+        <!--Bootstrap CSS CDN-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+<script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!---jQuery CDN-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="animations.css">
+		 
+		
+		</head>
+		<body>
+		
+		
+		
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Dashboard</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href=""></a>
+        
+        <!-- Right aligned menu below button -->
+<button id="demo-menu-lower-right"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
+
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-lower-right">
+  <li class="mdl-menu__item">Profile</li>
+  <li class="mdl-menu__item" id="userLogout">Logout</li>
+  
+</ul>
+     
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Menu</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+	
+	
+	<div class="mdl-grid demo-content">
+          <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#piechart" mask="url(#piemask)"></use>
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82<tspan font-size="0.2" dy="-0.07">%</tspan></text>
+            </svg>
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#piechart" mask="url(#piemask)"></use>
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+            </svg>
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#piechart" mask="url(#piemask)"></use>
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+            </svg>
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell mdl-cell--4-col mdl-cell--3-col-desktop">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#piechart" mask="url(#piemask)"></use>
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82<tspan dy="-0.07" font-size="0.2">%</tspan></text>
+            </svg>
+          </div>
+          <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
+            <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chart"></use>
+            </svg>
+            <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#chart"></use>
+            </svg>
+          </div>
+          <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+            <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+              <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
+                <h2 class="mdl-card__title-text">Intro to Computer Science</h2>
+              </div>
+              
+              <div class="mdl-card__actions mdl-card--border">
+                <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">ICS3UR<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+				<br>
+              </div>
+            </div>
+                     
+			<div class="demo-separator mdl-cell--1-col"></div>
+			
+            <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+			
+              <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
+                <h2 class="mdl-card__title-text">Manufacturing</h2>
+              </div>
+              
+			  
+              <div class="mdl-card__actions mdl-card--border">
+                <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect" data-upgraded=",MaterialButton,MaterialRipple">TMJ3MR<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></a>
+              </div>
+            </div>
+			
+                     
+            </div>
+          </div>
+        </div>
+	
+	
+	
+	</div>
+  </main>
+</div>
+</div>
+
+
+        <!--Firebase-->
+        <script type="text/javascript">
+
+    function initApp() {
+
+      firebase.auth().onAuthStateChanged(function(user) {
+document.getElementById('userLogout').addEventListener('click', userLogout, false);
+        console.log("Attempted Sign in");
+        console.log(user);
+        if (user) {
+          // User is signed in.
+          console.log("Attempted Sign in successful");
+          var displayName = user.displayName;
+          var email = user.email;
+          var emailVerified = user.emailVerified;
+          var photoURL = user.photoURL;
+          var isAnonymous = user.isAnonymous;
+          var uid = user.uid;
+          var refreshToken = user.refreshToken;
+          var providerData = user.providerData;
+
+
+          console.log(uid);
+          console.log(displayName);
+          console.log(email);
+          console.log(photoURL);
+
+
+          if (!emailVerified) {
+
+             firebase.auth().currentUser.sendEmailVerification().then(function() {
+    
+        console.log('Email Verification Sent!');
+      
+      });
+
+             window.location = 'email-verification.html'
+          }
+
+        } else {
+           window.location = 'index.html'
+        }
+
+      });
+
+    }
+    window.onload = function() {
+      initApp();
+        ref.onAuth(function(authData) {
+  if (authData) {
+    console.log("User " + authData.uid + " is logged in with " + authData.provider + authData.email);
+  } else {
+    console.log("User is logged out");
+  }
+});
+    };
+    
+   function userLogout(){
+     firebase.auth().signOut().then(function() {
+  // Signout success
+  console.log("ayy you are logged out");
+   }, function(error) {
+  // error 
+});
+     
+   }  
+
+    </script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--Firebase Initialization-->
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+          <script>
+         var config = {
+         apiKey: "AIzaSyDa_qMIa7N3YZ1GrP8ydQh4xXZetjOC0fs",
+         authDomain: "markcalc-beta.firebaseapp.com",
+         databaseURL: "https://markcalc-beta.firebaseio.com",
+         storageBucket: "markcalc-beta.appspot.com",
+         messagingSenderId: "1023910831150"
+         };
+         firebase.initializeApp(config);
+         
+      </script>
+
+      </body></html>
