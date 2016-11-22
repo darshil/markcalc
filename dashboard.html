@@ -29,19 +29,23 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href=""></a>
+        <a class="mdl-navigation__link" href="" id="userName"></a>
+         
         
         <!-- Right aligned menu below button -->
 <button id="demo-menu-lower-right"
-        class="mdl-button mdl-js-button mdl-button--icon">
-  <i class="material-icons">more_vert</i>
+        class="mdl-button mdl-js-button userAvatar"> 
+         <img src="" id="userPhoto" class="userAvatar">
+  
+
 </button>
 
 <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
     for="demo-menu-lower-right">
   <li class="mdl-menu__item">Profile</li>
+  <li class="mdl menu__item">Settings</li>
   <li class="mdl-menu__item" id="userLogout">Logout</li>
-  
+
 </ul>
      
       </nav>
@@ -50,10 +54,10 @@
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title">Menu</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="" id="userName"></a>
+      <a class="mdl-navigation__link" href="">Profile</a>
+      <a class="mdl-navigation__link" href="">Settings</a>
+      <a class="mdl-navigation__link">Logout</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -157,12 +161,16 @@
         <script type="text/javascript">
 
     function initApp() {
+      
 
       firebase.auth().onAuthStateChanged(function(user) {
 document.getElementById('userLogout').addEventListener('click', userLogout, false);
+
         console.log("Attempted Sign in");
         console.log(user);
         if (user) {
+          
+          
           // User is signed in.
           console.log("Attempted Sign in successful");
           var displayName = user.displayName;
@@ -179,6 +187,9 @@ document.getElementById('userLogout').addEventListener('click', userLogout, fals
           console.log(displayName);
           console.log(email);
           console.log(photoURL);
+           
+ document.getElementById('userName').innerHTML = "Hello, " +  displayName;
+ document.getElementById('userPhoto').src= photoURL;
 
 
           if (!emailVerified) {
@@ -188,7 +199,8 @@ document.getElementById('userLogout').addEventListener('click', userLogout, fals
         console.log('Email Verification Sent!');
       
       });
-
+      
+     
              window.location = 'email-verification.html'
           }
 
