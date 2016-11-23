@@ -136,12 +136,21 @@
 		  document.getElementById("sample1").style.visibility = 'hidden';
 		  document.getElementById("sample2").style.visibility = 'hidden';
 		  
+<<<<<<< HEAD
 		  var studentNumber = studentEmail.substring(0, studentEmail.indexOf('@'));
 		 
 		  
 			if(studentEmail.substring(studentEmail.indexOf('@'),studentEmail.length)=="@pdsb.net"){
 			
 			if (!isNaN(studentNumber)) {
+=======
+		  var studentNumber = parseInt(studentEmail.substring(studentEmail.indexOf(0), studentEmail.indexOf('@')));
+		  
+		  
+			if(studentEmail.substring(studentEmail.indexOf('@'),studentEmail.length)=="@pdsb.net"){
+			
+			if ((studentNumber/studentNumber)==1){
+>>>>>>> wip: Peel Email Verification
 			
 			document.getElementById("output").innerHTML = "You are a peel student. This email has been verified!"
 			document.getElementById("output").style.visibility = 'visible';
@@ -178,4 +187,8 @@
          
       </script>
    </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> wip: Peel Email Verification
