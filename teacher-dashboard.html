@@ -76,7 +76,7 @@
 					</li>
                   <div class="mdl-dialog__actions">
                      <button type="button" id="userSubmit" class="mdl-button" id="enter">Enter</button>
-                     <button type="button" class="mdl-button" id="close">Cancel</button>
+                     <button type="button" class="mdl-button" id="cancel" onclick="cancel()">Cancel</button>
                   </div>
                </dialog>
             </div>
@@ -92,13 +92,13 @@
          showDialogButton.addEventListener('click', function() {
            dialog.showModal();
          });
-         dialog.querySelector('#close').addEventListener('click', function() {
-           dialog.close();
-         });
+         
       </script>
       <!--Firebase-->
       <script type="text/javascript">
-         function initApp() {
+   
+		 
+		 function initApp() {
            document.getElementById("userSubmit").addEventListener("click", classCode);
          
            firebase.auth().onAuthStateChanged(function(user) {
@@ -170,42 +170,46 @@
            
          }  
 		 
-		 function createCourseCard(){
+		 var courseName = "";
+		 var courseGrade = 0;
+		 var code  = 0;
 		 
-		 }
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 
-		 function classCode(){
+		  function classCode(){
 		 			
-		  var courseName = document.getElementById("sample3").value;
+		  courseName = document.getElementById("sample3").value;
 		  
 		  document.getElementById("sample3").style.visibility = 'hidden';
 		  
 		  document.getElementById("sample2").style.visibility = 'hidden';
 		  
-		  var courseGrade = parseInt(courseName.charAt(3));
+		  courseGrade = parseInt(courseName.charAt(3));
 		  
 		  courseGrade = courseGrade+8;
-		  
-		  
-		  
 
 		  
-		var code  = Math.trunc(Math.random()*1000000);
+		code  = Math.trunc(Math.random()*1000000);
          document.getElementById("code").style.visibility = 'visible';
         document.getElementById("code").innerHTML = "The code for " + "grade " + courseGrade + " " +  courseName + " is : " + code;
-		
-		createCourseCard();
 			
+		 }
+		 
+		 function cancel(){
+		 courseName = "";
+		 courseGrade = 0;
+		 code = 0;
+		 
+		 
+		 document.getElementById("sample3").style.visibility = 'visible';
+		  
+		  document.getElementById("sample2").style.visibility = 'visible';
+		  
+		  document.getElementById("code").innerHTML = "";
+		  
+		  document.getElementById("code").style.visibility = 'hidden';
+		  
+		  dialog.close();	  
+		 
+		 
 		 }
 		 
 		 
