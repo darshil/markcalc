@@ -136,8 +136,7 @@
       document.getElementById("sample1").style.visibility = 'hidden';
       document.getElementById("sample2").style.visibility = 'hidden';
       
-      var studentNumber = studentEmail.substring(studentEmail.indexOf(0), studentEmail.indexOf('@'));
-     
+      var studentNumber = studentEmail.substring(0, studentEmail.indexOf('@'));
       
       if(studentEmail.substring(studentEmail.indexOf('@'),studentEmail.length)=="@pdsb.net"){
       

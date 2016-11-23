@@ -1,13 +1,9 @@
-/*  
-
-    TODO: Skip Email verification for google sign ups
-
-
-*/
 var provider = new firebase.auth.GoogleAuthProvider();
 var googleSignInState = false;
 var emailAuth;
 var email;
+var dialog = document.querySelector('dialog');
+var database = firebase.database();
 
 /* function toggleSignIn() {
     if (firebase.auth().currentUser) {
@@ -140,8 +136,7 @@ function googleSignIn() {
        var studentEmail = email;
       console.log(email);
       console.log(studentEmail);
-      var studentNumber = studentEmail.substring(studentEmail.indexOf(0), studentEmail.indexOf('@'));
-     
+     var studentNumber = studentEmail.substring(0, studentEmail.indexOf('@'));
       
       if(studentEmail.substring(studentEmail.indexOf('@'),studentEmail.length)=="@pdsb.net"){
       
@@ -159,8 +154,13 @@ function googleSignIn() {
       else {
       
       
-      alert("Please enter a @pdsb.net email!");
+      dialog.showModal();
       userDelete();
+      document.getElementById("studentError").innerHTML = "Please enter a @pdsb.net email"
+      
+       dialog.querySelector('#close').addEventListener('click', function() {
+      dialog.close();
+    });
       }
     
       }
@@ -206,6 +206,13 @@ function sendPasswordReset() {
 
 }
 */
+            function writeUserData(uid, displayName, email, photoURL) {
+  firebase.database().ref('students/' + uid).set({
+    username: displayName,
+    email: email,
+    profile_picture : photoURL
+  });
+}
 
 
 function initApp() {
@@ -224,6 +231,9 @@ function initApp() {
             var refreshToken = user.refreshToken;
             var providerData = user.providerData;
             
+            writeUserData(uid, displayName, email, photoURL);
+            
+
             console.log(email);
             studentCheck();
           
