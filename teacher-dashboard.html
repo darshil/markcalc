@@ -62,17 +62,11 @@
             <div class="page-content">
                 <button id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored view-source">  <i class="material-icons">add</i></button>
                <dialog class="mdl-dialog">
-                  <h4 class="mdl-dialog__title">Create a Class?</h4>
+                  <h4 class="mdl-dialog__title">Create a Class</h4>
                   <div class="mdl-dialog__content">
                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 						<input class="mdl-textfield__input" type="text" id="sample3">
 						<label class="mdl-textfield__label" id="sample2" for="sample3">Course Name...</label>
-						</div>
-                  </div>
-				   <div class="mdl-dialog__content">
-                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="sample4">
-						<label class="mdl-textfield__label" id="sample1" for="sample4">Course Grade...</label>
 						</div>
                   </div>
 				  <li class="mdl-list__item">
@@ -82,7 +76,7 @@
 					</li>
                   <div class="mdl-dialog__actions">
                      <button type="button" id="userSubmit" class="mdl-button" id="enter">Enter</button>
-                     <button type="button" class="mdl-button" id="close">Cancel</button>
+                     <button type="button" class="mdl-button" id="cancel" onclick="cancel()">Cancel</button>
                   </div>
                </dialog>
             </div>
@@ -98,13 +92,13 @@
          showDialogButton.addEventListener('click', function() {
            dialog.showModal();
          });
-         dialog.querySelector('#close').addEventListener('click', function() {
-           dialog.close();
-         });
+         
       </script>
       <!--Firebase-->
       <script type="text/javascript">
-         function initApp() {
+   
+		 
+		 function initApp() {
            document.getElementById("userSubmit").addEventListener("click", classCode);
          
            firebase.auth().onAuthStateChanged(function(user) {
@@ -176,21 +170,53 @@
            
          }  
 		 
-		 function classCode(){
+		 var courseName = "";
+		 var courseGrade = 0;
+		 var code  = 0;
+		 
+		  function classCode(){
 		 			
-		  var courseName = document.getElementById("sample3").value;
-		  var courseGrade = document.getElementById("sample4").value;
+		  courseName = document.getElementById("sample3").value;
+		  
 		  document.getElementById("sample3").style.visibility = 'hidden';
-		  document.getElementById("sample4").style.visibility = 'hidden';
-		  document.getElementById("sample1").style.visibility = 'hidden';
+		  
 		  document.getElementById("sample2").style.visibility = 'hidden';
+		  
+		  courseGrade = parseInt(courseName.charAt(3));
+		  
+		  courseGrade = courseGrade+8;
 
 		  
-		var code  = Math.trunc(Math.random()*1000000);
+		code  = Math.trunc(Math.random()*1000000);
          document.getElementById("code").style.visibility = 'visible';
-        document.getElementById("code").innerHTML = "The code for " + courseName + " is : " + code;
-				
+        document.getElementById("code").innerHTML = "The code for " + "grade " + courseGrade + " " +  courseName + " is : " + code;
+			
 		 }
+		 
+		 function cancel(){
+		 courseName = "";
+		 courseGrade = 0;
+		 code = 0;
+		 
+		 
+		 document.getElementById("sample3").style.visibility = 'visible';
+		  
+		  document.getElementById("sample2").style.visibility = 'visible';
+		  
+		  document.getElementById("code").innerHTML = "";
+		  
+		  document.getElementById("code").style.visibility = 'hidden';
+		  
+		  dialog.close();	  
+		 
+		 
+		 }
+		 
+		 
+		 
+		 
+		 
+		 
          
       </script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

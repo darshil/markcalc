@@ -1,11 +1,9 @@
-/*  
-
-    TODO: Skip Email verification for google sign ups
-
-
-*/
 var provider = new firebase.auth.GoogleAuthProvider();
 var googleSignInState = false;
+var emailAuth;
+var email;
+var dialog = document.querySelector('dialog');
+var database = firebase.database();
 
 /* function toggleSignIn() {
     if (firebase.auth().currentUser) {
@@ -88,13 +86,102 @@ function googleSignIn() {
     }).catch(function(error) {
         var errorCode = error.code;
         var errorMessage = error.message;
-        var email = error.email;
+        
         var credential = error.credential;
 
     });
+ 
+       
 
-    googleSignInState = true;
+
 }
+
+     function teacherCheck(){
+      
+      var teacherBool = false;
+     
+      var teacherEmail = email
+
+      
+      if(teacherEmail.substring(teacherEmail.indexOf('@'),teacherEmail.length)=="@pdsb.net"){
+      
+      if (teacherEmail.charAt(0)=='p'){
+      
+      console.log("You are a teacher")
+      teacherBool = true;
+      window.location = 'teacher-darshboard.html'
+      }
+      else {
+      
+      
+      alert("You are not a peel teacher! Please enter your studentNumber@pdsb.net email!");
+      location.reload();
+      
+      }
+      }
+      else {
+      
+      
+      alert("Please enter a @pdsb.net email!");
+      location.reload();
+      } 
+    
+        
+     }     
+     
+     function studentCheck(){
+     
+     var studentBool = false;
+         
+       var studentEmail = email;
+      console.log(email);
+      console.log(studentEmail);
+     var studentNumber = studentEmail.substring(0, studentEmail.indexOf('@'));
+      
+      if(studentEmail.substring(studentEmail.indexOf('@'),studentEmail.length)=="@pdsb.net"){
+      
+      if (!isNaN(studentNumber)) {
+      
+     window.location = 'dashboard.html'
+      studentBool = true;
+      }
+      else {
+      
+      alert("You are not a peel student! Please enter your teacherNumber@pdsb.net email!");
+     
+      }
+      }
+      else {
+      
+      
+      dialog.showModal();
+      userDelete();
+      document.getElementById("studentError").innerHTML = "Please enter a @pdsb.net email"
+      
+       dialog.querySelector('#close').addEventListener('click', function() {
+      dialog.close();
+    });
+      }
+    
+      }
+
+
+
+//
+      function userDelete(){
+
+        var user = firebase.auth().currentUser;
+
+user.delete().then(function() {
+  console.log("User deleted");
+  
+}, function(error) {
+
+});
+      }
+
+
+      //
 /*
 function sendPasswordReset() {
     var email = document.getElementById('email').value;
@@ -119,6 +206,14 @@ function sendPasswordReset() {
 
 }
 */
+            function writeUserData(uid, displayName, email, photoURL) {
+  firebase.database().ref('students/' + uid).set({
+    username: displayName,
+    email: email,
+    profile_picture : photoURL
+  });
+}
+
 
 function initApp() {
     // auth change listener 
@@ -128,15 +223,20 @@ function initApp() {
         if (user) {
             // User is signed in.
             var displayName = user.displayName;
-            var email = user.email;
+             email = user.email;
             var emailVerified = user.emailVerified;
             var photoURL = user.photoURL;
             var isAnonymous = user.isAnonymous;
             var uid = user.uid;
             var refreshToken = user.refreshToken;
             var providerData = user.providerData;
+            
+            writeUserData(uid, displayName, email, photoURL);
+            
 
-            window.location = 'dashboard.html';
+            console.log(email);
+            studentCheck();
+          
 
             document.getElementById('quickstart-account-details').textContent = JSON.stringify({
                 displayName: displayName,
@@ -154,6 +254,7 @@ function initApp() {
 
 
         } else {
+
            
 
         }
@@ -161,13 +262,13 @@ function initApp() {
 
     });
 
-   // document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
-    // document.getElementById('quickstart-sign-up').addEventListener('click', handleSignUp, false);
     document.getElementById('googleSignIn').addEventListener('click', googleSignIn, false);
-    document.getElementById('googleSignUp').addEventListener('click', googleSignIn, false);
+    document.getElementById('studentSignUp').addEventListener('click', googleSignIn, false);
+        document.getElementById('teacherSignUp').addEventListener('click', teacherSignUp, false);
 
    // document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
 window.onload = function() {
     initApp();
 };
+
