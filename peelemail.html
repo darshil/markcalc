@@ -136,12 +136,12 @@
 		  document.getElementById("sample1").style.visibility = 'hidden';
 		  document.getElementById("sample2").style.visibility = 'hidden';
 		  
-		  var studentNumber = parseInt(studentEmail.substring(studentEmail.indexOf(0), studentEmail.indexOf('@')));
-		  
+		  var studentNumber = studentEmail.substring(studentEmail.indexOf(0), studentEmail.indexOf('@'));
+		 
 		  
 			if(studentEmail.substring(studentEmail.indexOf('@'),studentEmail.length)=="@pdsb.net"){
 			
-			if ((studentNumber/studentNumber)==1){
+			if (!isNaN(studentNumber)) {
 			
 			document.getElementById("output").innerHTML = "You are a peel student. This email has been verified!"
 			document.getElementById("output").style.visibility = 'visible';
