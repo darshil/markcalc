@@ -2,69 +2,14 @@ var provider = new firebase.auth.GoogleAuthProvider();
 var googleSignInState = false;
 var emailAuth;
 var email;
+ var displayName;
+  var uid 
+var photoURL; 
 var dialog = document.querySelector('dialog');
 var database = firebase.database();
+var teacherSignUp = false;
+var studentSignUp = false;
 
-/* function toggleSignIn() {
-    if (firebase.auth().currentUser) {
-
-        firebase.auth().signOut();
-
-    } else {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-
-        if (password.length <= 6) {
-            alert('Please enter a password greater than 6 characters');
-            return;
-        }
-        // Sign in with email and pass.
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-            //  error handling 
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            if (errorCode === 'auth/wrong-password') {
-                alert('Wrong password.');
-            } else {
-                alert(errorMessage);
-            }
-            console.log(error);
-            document.getElementById('quickstart-sign-in').disabled = false;
-
-        });
-
-    }
-    document.getElementById('quickstart-sign-in').disabled = true;
-}
-
-function handleSignUp() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    if (password.length < 6) {
-        alert('Please enter a password greater than 6 characters');
-        return;
-    }
-    // Sign up
-
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // error handling 
-        var errorCode = error.code;
-        var errorMessage = error.message;
-
-        if (errorCode == 'auth/weak-password') {
-            alert('The password is too weak.');
-        } else {
-            alert(errorMessage);
-        }
-        console.log(error);
-
-    });
-    sendEmailVerification();
-
-}
-
-
-*/
 
 function sendEmailVerification() {
 
@@ -141,7 +86,7 @@ function googleSignIn() {
       if(studentEmail.substring(studentEmail.indexOf('@'),studentEmail.length)=="@pdsb.net"){
       
       if (!isNaN(studentNumber)) {
-      
+      writeUserData(uid, displayName, email, photoURL);
      window.location = 'dashboard.html'
       studentBool = true;
       }
@@ -181,31 +126,7 @@ user.delete().then(function() {
       }
 
 
-      //
-/*
-function sendPasswordReset() {
-    var email = document.getElementById('email').value;
-
-    firebase.auth().sendPasswordResetEmail(email).then(function() {
-
-        alert('Password Reset Email Sent!');
-
-    }).catch(function(error) {
-        // error handling
-        var errorCode = error.code;
-        var errorMessage = error.message;
-
-        if (errorCode == 'auth/invalid-email') {
-            alert(errorMessage);
-        } else if (errorCode == 'auth/user-not-found') {
-            alert(errorMessage);
-        }
-        console.log(error);
-
-    });
-
-}
-*/
+ 
             function writeUserData(uid, displayName, email, photoURL) {
   firebase.database().ref('students/' + uid).set({
     username: displayName,
@@ -222,21 +143,26 @@ function initApp() {
 
         if (user) {
             // User is signed in.
-            var displayName = user.displayName;
+             displayName = user.displayName;
              email = user.email;
             var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
+            photoURL = user.photoURL;
             var isAnonymous = user.isAnonymous;
-            var uid = user.uid;
+           uid = user.uid;
             var refreshToken = user.refreshToken;
             var providerData = user.providerData;
             
-            writeUserData(uid, displayName, email, photoURL);
+            
             
 
-            console.log(email);
+        if(studentSignUp && !teacherSignUp){
             studentCheck();
-          
+            
+        }
+                if(teacherSignUp && !studentSignUp){
+            teacherCheck();
+            
+        }
 
             document.getElementById('quickstart-account-details').textContent = JSON.stringify({
                 displayName: displayName,
@@ -263,12 +189,23 @@ function initApp() {
     });
 
     document.getElementById('googleSignIn').addEventListener('click', googleSignIn, false);
-    document.getElementById('studentSignUp').addEventListener('click', googleSignIn, false);
-        document.getElementById('teacherSignUp').addEventListener('click', teacherSignUp, false);
+    document.getElementById('studentSignUp').addEventListener('click', student, false);
+        document.getElementById('teacherSignUp').addEventListener('click', teacher, false);
 
    // document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
 window.onload = function() {
     initApp();
 };
+
+function teacher(){
+    teacherSignUp = true;
+    googleSignIn();
+}
+
+
+function student(){
+    studentSignUp = true;
+    googleSignIn();
+}
 

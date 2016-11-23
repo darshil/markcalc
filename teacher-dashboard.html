@@ -97,8 +97,9 @@
       <!--Firebase-->
       <script type="text/javascript">
    
-		 
+		 var database;
 		 function initApp() {
+		     database = firebase.database();
            document.getElementById("userSubmit").addEventListener("click", classCode);
          
            firebase.auth().onAuthStateChanged(function(user) {
@@ -191,13 +192,24 @@
          document.getElementById("code").style.visibility = 'visible';
         document.getElementById("code").innerHTML = "The code for " + "grade " + courseGrade + " " +  courseName + " is : " + code;
 			
+			writeUserData(code);
+			
 		 }
+		 
+		function writeUserData(code) {
+  firebase.database().ref('class-codes/').set({
+  code: code
+  });
+} 
+		 
 		 
 		 function cancel(){
 		 courseName = "";
 		 courseGrade = 0;
 		 code = 0;
 		 
+		 
+		  
 		 
 		 document.getElementById("sample3").style.visibility = 'visible';
 		  
