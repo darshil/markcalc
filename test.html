@@ -1,110 +1,172 @@
 <!DOCTYPE html>
 <html>
-    <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-      <meta charset="utf-8">
-      <meta name="description" content="A program to calculate your final mark based on different weightings of segmented marks according to the subject">
-      <meta name="author" content="Rushi Gandhi, Harsimran Aneja, Tapnish Wadhwa, Aditya Sharma">
-      <title>95 or nah?</title>
-
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <head>
+      <meta name ="viewport" content ="width=device-width, initial-scale=1.0">
+      <!--Bootstrap CSS CDN-->
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-       <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
-             <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-      <!-- CSS  -->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      <link rel="shortcut icon" href="favicon.png">
-     
-          <link href="css/home.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-            <script src="js/home.js"></script>
-
-
-</head>
-<body>
-
-    </head>
-
-    <body>
-
-
-
-
-
-
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      
-      <span class="mdl-layout-title">MarkCalc</span>
-
-      <div class="mdl-layout-spacer"></div>
-      
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-      </nav>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
-  </div>
-  <main class="mdl-layout__content">
-    <div class="page-content">
-    
-      <div id="container"> 
-  
-
-      <dialog id="loginDialog" class="mdl-dialog">
-         <h4 class="mdl-dialog__title">Register</h4>
-         <div class="mdl-dialog__content">
-         <p id="loginError"></p>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-               <input class="mdl-textfield__input" type="email" id="email" name="email">
-               <label class="mdl-textfield__label" for="email">Email</label>
+      <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+      <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <!---jQuery CDN-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <link rel="stylesheet" href="css/home.css">
+      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="animations.css">
+      <style>
+         .view-source{
+         position: fixed;
+         display: block;
+         right: 0;
+         bottom: 0;
+         margin-right: 40px;
+         margin-bottom: 40px;
+         z-index: 900;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+         <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+               <!-- Title -->
+               <span class="mdl-layout-title">Login</span>
+               <!-- Add spacer, to align navigation to the right -->
+               <div class="mdl-layout-spacer"></div>
+               <!-- Navigation. We hide it in small screens. -->
+               <nav class="mdl-navigation mdl-layout--large-screen-only">
+                  <a class="mdl-navigation__link" href="" id="userName"></a>
+                  <!-- Right aligned menu below button -->
+                  <button id="demo-menu-lower-right"
+                     class="mdl-button mdl-js-button userAvatar"> 
+                  <img src="" id="userPhoto" class="userAvatar">
+                  </button>
+                 
+         <main class="mdl-layout__content">
+            <div class="page-content">
+                <button id="show-dialog" type="button" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored view-source">  <i class="material-icons">add</i></button>
+               <dialog class="mdl-dialog">
+                  <h4 class="mdl-dialog__title">Register?</h4>
+                  <div class="mdl-dialog__content">
+                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="sample3">
+            <label class="mdl-textfield__label" id="sample2" for="sample3">Ex.email@pdsb.net</label>
             </div>
-               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" type="password" id="password" name="password">
-                  <label class="mdl-textfield__label" for="password">Pasword</label>
-               </div>
-            
-         </div>
-         <div class="mdl-dialog__actions">
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"  id="quickstart-sign-in" name="signin">Login</button>
-
-           
-
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="quickstart-sign-up" name="signup">Register</button>
-             
-
-         </div>
-      </dialog>
+                  </div>
+           <div class="mdl-dialog__content">
+                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="sample4">
+            <label class="mdl-textfield__label" id="sample1" for="sample4">password</label>
             </div>
-        </div>
-
+                  </div>
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content"  id="output" style=" visibility:hidden">
+          Hello World
+          </span>
+          </li>
+                  <div class="mdl-dialog__actions">
+                     <button type="button"  onclick="teacherCheck()" class="mdl-button" >Teacher</button>
+                     <button type="button"  onclick="studentCheck()" class="mdl-button" >Student</button>
+                  </div>
+               </dialog>
+            </div>
+         </main>
       </div>
-
-    </div>
-  </main>
-</div>
-
-
-
-    <!--Bootstrap Js CDN-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!--Firebase Initialization-->
-    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
-       <script>
+      </div>
+      <script>
+         var dialog = document.querySelector('dialog');
+         var showDialogButton = document.querySelector('#show-dialog');
+         if (! dialog.showModal) {
+           dialogPolyfill.registerDialog(dialog);
+         }
+         showDialogButton.addEventListener('click', function() {
+           dialog.showModal();
+         });
+         </script>
+      <!--Firebase-->
+      <script type="text/javascript">
+  
+           
+       
+     
+     function teacherCheck(){
+      
+      var teacherBool = false;
+     
+      var teacherEmail = document.getElementById("sample3").value;
+      var teacherPassword = document.getElementById("sample4").value;
+      document.getElementById("sample3").style.visibility = 'hidden';
+      document.getElementById("sample4").style.visibility = 'hidden';
+      document.getElementById("sample1").style.visibility = 'hidden';
+      document.getElementById("sample2").style.visibility = 'hidden';
+      
+      if(teacherEmail.substring(teacherEmail.indexOf('@'),teacherEmail.length)=="@pdsb.net"){
+      
+      if (teacherEmail.charAt(0)=='p'){
+      
+      document.getElementById("output").innerHTML = "You are a peel teacher. This email is verified!";
+      document.getElementById("output").style.visibility = 'visible';
+      teacherBool = true;
+      }
+      else {
+      
+      
+      alert("You are not a peel teacher! Please enter your studentNumber@pdsb.net email!");
+      location.reload();
+      
+      }
+      }
+      else {
+      
+      
+      alert("Please enter a @pdsb.net email!");
+      location.reload();
+      } 
+    
+        
+     }     
+     
+     function studentCheck(){
+     
+     var studentBool = false;
+         
+       var studentEmail = document.getElementById("sample3").value;
+      var studentPassword = document.getElementById("sample4").value;
+      document.getElementById("sample3").style.visibility = 'hidden';
+      document.getElementById("sample4").style.visibility = 'hidden';
+      document.getElementById("sample1").style.visibility = 'hidden';
+      document.getElementById("sample2").style.visibility = 'hidden';
+      
+      var studentNumber = studentEmail.substring(studentEmail.indexOf(0), studentEmail.indexOf('@'));
+     
+      
+      if(studentEmail.substring(studentEmail.indexOf('@'),studentEmail.length)=="@pdsb.net"){
+      
+      if (!isNaN(studentNumber)) {
+      
+      document.getElementById("output").innerHTML = "You are a peel student. This email has been verified!"
+      document.getElementById("output").style.visibility = 'visible';
+      studentBool = true;
+      }
+      else {
+      
+      alert("You are not a peel student! Please enter your teacherNumber@pdsb.net email!");
+      location.reload();
+      }
+      }
+      else {
+      
+      
+      alert("Please enter a @pdsb.net email!");
+      location.reload();
+      }
+    
+      }
+         
+      </script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <!--Firebase Initialization-->
+      <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+      <script>
          var config = {
          apiKey: "AIzaSyDa_qMIa7N3YZ1GrP8ydQh4xXZetjOC0fs",
          authDomain: "markcalc-beta.firebaseapp.com",
@@ -115,6 +177,5 @@
          firebase.initializeApp(config);
          
       </script>
-      
-      </body>
-      </html>
+   </body>
+</html>
