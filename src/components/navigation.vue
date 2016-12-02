@@ -35,6 +35,12 @@
 
 <script>
 import home from './home.vue'
+export default {
+  name: 'app',
+  components: {
+   home
+  }
+}
 
 </script>
 
