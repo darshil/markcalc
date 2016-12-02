@@ -1,17 +1,20 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
-  </div>
+
+  <navigation>
+   <home></home>
+  </navigation>
+ 
+ 
 </template>
 
 <script>
-import Hello from './components/Hello'
+import navigation from './components/navigation'
+import home from './components/home.vue'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    navigation
   }
 }
 </script>
