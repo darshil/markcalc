@@ -1,6 +1,7 @@
-# markcalc
+# MarkCalc
 
-> markcalc
+## About MarkCalc
+MarkCalc is a web app that lets teachers post students marks and students can accesss their marks. It started off as a Hackathon project at Electric City Hacks 2016.
 
 ## Build Setup
 
